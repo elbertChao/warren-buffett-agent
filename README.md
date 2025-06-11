@@ -1,6 +1,6 @@
 # 📈 Warren Buffett Chatbot Agent
 
-This is a personal project that explores the intersection of **artificial intelligence** and **finance** by creating a Warren Buffett-inspired stock advisor chatbot. Using **OpenAI's API** for natural language understanding and **SerpAPI** for real-time financial data, the chatbot is designed to emulate the investing philosophy and conversational style of Warren Buffett.
+This is a personal project that explores the intersection of **artificial intelligence** and **finance** by creating a Warren Buffett-inspired stock advisor chatbot. Built using **Python**, **LangChain**, and **Streamlit**, the chatbot uses **OpenAI's API** for natural language reasoning, **yfinance** for stock fundamentals, and **SerpAPI** for real-time financial news. It is designed to emulate Warren Buffett’s investment philosophy and communication style.
 
 > ⚠️ **Disclaimer:** This project is for educational purposes only and does **not** constitute financial advice.
 
@@ -8,46 +8,55 @@ This is a personal project that explores the intersection of **artificial intell
 
 ## 🧠 Project Overview
 
-The Warren Buffett Chatbot Agent allows users to ask questions about:
-- Stock recommendations
-- Investment strategies
-- Company fundamentals
-- Economic trends
+The Warren Buffett Chatbot Agent allows users to ask investment-related questions and receive guidance aligned with Buffett’s value investing principles. Topics include:
 
-and get context-rich responses that reflect the value-investing principles Warren Buffett is known for.
+- 📊 Stock recommendations
+- 📈 Investment strategies
+- 🏢 Company fundamentals
+- 🌍 Market trends and economic outlook
+
+The chatbot responds with Buffett-style reasoning, quoting well-known Buffett principles and maintaining a prudent tone.
 
 ---
 
 ## ✨ Features
 
-- 🤖 **Conversational AI** trained to mimic Warren Buffett’s tone and reasoning
-- 🔍 **Live Stock Data** from SerpAPI
-- 🧠 **LLM Integration** using OpenAI’s GPT models
-- 💬 Natural language Q&A interface
-- 🧱 Modular architecture for easy future upgrades (e.g., voice input, portfolio tools, news summarization)
+- 🤖 **Conversational Agent** trained to simulate Warren Buffett’s tone and logic
+- 📉 **Live Stock Data** via `yfinance`
+- 📰 **Recent News Fetching** using SerpAPI and LangChain tools
+- 🧠 **OpenAI Integration** for intelligent responses
+- 🛡️ **API Key Validation** and session state handling
+- 💬 **Chat History** with Streamlit's chat UI
+- 🧱 Modular Python structure (LLM config, tools, prompts, memory)
 
 ---
 
 ## 🛠 Tech Stack
 
-| Layer     | Tool/Service        |
-|-----------|---------------------|
-| Backend   | Node.js / Python    |
-| AI Model  | OpenAI GPT (API)    |
-| Data API  | SerpAPI (Stock Data)|
-| Frontend  | React (Planned)     |
-| Hosting   | Vercel / GitHub Pages (Planned) |
+| Layer         | Tool / Service              |
+|---------------|-----------------------------|
+| LLM Framework | [LangChain](https://www.langchain.com/)         |
+| Chat UI       | [Streamlit](https://streamlit.io/)              |
+| Language Model| [OpenAI API](https://platform.openai.com/)      |
+| Data API      | [yfinance](https://pypi.org/project/yfinance/)  |
+| News API      | [SerpAPI](https://serpapi.com/)                 |
+| Deployment    | Streamlit Cloud / Custom (TBD)                  |
 
 ---
 
 ## 🚀 Roadmap
 
-- [ ] Implement core chatbot with OpenAI API
-- [ ] Integrate SerpAPI for stock data queries
-- [ ] Design simple chat UI (React)
-- [ ] Add personality tuning for Buffett-style tone
-- [ ] Deploy MVP online
-- [ ] Add support for saving user queries and feedback
+- [x] Implement core chatbot with OpenAI and LangChain
+- [x] Add yfinance integration for stock fundamentals
+- [x] Add SerpAPI news search tool
+- [x] Streamlit UI for interactive chatting
+- [x] API key input and validation
+- [ ] Add portfolio analysis and tracking features
+- [ ] Refine personality tuning with few-shot examples
+- [ ] Deploy to cloud (Streamlit Share / Hugging Face Spaces)
+- [ ] Add feedback loop for rating responses
+
+---
 
 ## 📂 Repository Structure (Planned)
 - IN PROGRESS
