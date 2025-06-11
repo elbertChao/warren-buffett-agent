@@ -1,0 +1,20 @@
+langchain
+langchain-openai
+langchain-community
+openai
+yfinance
+google-search-results
+streamlit
+streamlit-chat
+python-dotenv
+
+# SPECIFIC VERSIONS USED IN THIS PROJECT (Approximate latest versions as of June 2025)
+# langchain>=0.1.14
+# langchain-openai>=0.1.5
+# langchain-community>=0.0.25
+# openai>=1.30.0
+# yfinance>=0.2.37
+# google-search-results>=2.4.2
+# streamlit>=1.35.0
+# streamlit-chat>=0.0.3
+# python-dotenv>=1.0.1

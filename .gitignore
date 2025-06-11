@@ -1,0 +1,76 @@
+# === Node.js ===
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.env
+.env.local
+dist/
+build/
+coverage/
+
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.env
+*.venv
+.env/
+.venv/
+env/
+venv/
+pip-log.txt
+pip-delete-this-directory.txt
+*.egg
+*.egg-info/
+.eggs/
+MANIFEST
+
+# Jupyter Notebook Checkpoints
+.ipynb_checkpoints
+
+# === React ===
+/frontend/build
+/frontend/node_modules
+/frontend/.env
+
+# === VS Code ===
+.vscode/
+
+# === macOS ===
+.DS_Store
+
+# === Logs ===
+logs/
+*.log
+
+# === OS-generated ===
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# === IDEs ===
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# === Misc ===
+*.swp
+*.bak
+*.tmp
+*.old
+
+# === Testing ===
+coverage/
+.pytest_cache/
+jest.config.js
+
+# === Optional: lock files ===
+package-lock.json
+yarn.lock
+
+# === Docker (if used in future) ===
+*.pid
+docker-compose.override.yml
