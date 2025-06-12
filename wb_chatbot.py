@@ -14,7 +14,7 @@ from langchain.tools import Tool
 from langchain_community.utilities import SerpAPIWrapper
 
 # ************* Load .env file (as a fallback) *************
-load_dotenv()
+load_dotenv(override=True)
 
 # ************* Set Page Config *************
 st.set_page_config(page_title="Warren Buffett Bot", layout="wide")
@@ -52,8 +52,21 @@ def is_valid_serpapi_key(key):
     return bool(key)
 
 # Determine which keys are active (user input takes priority)
-active_openai_key = st.session_state.openai_api_key # or os.getenv("OPENAI_API_KEY")
-active_serpapi_key = st.session_state.serpapi_api_key # or os.getenv("SERPAPI_API_KEY")
+key_source = st.sidebar.radio("Use API key from:", ["Environment (.env)", "Manual Input"])
+if key_source == "Environment (.env)":
+    active_openai_key = os.getenv("OPENAI_API_KEY")
+    active_serpapi_key = os.getenv("SERPAPI_API_KEY")
+else:
+    active_openai_key = st.session_state.openai_api_key
+    active_serpapi_key = st.session_state.serpapi_api_key
+
+# DEBUGGING
+# st.sidebar.write("🧪 Debug Info:")
+# st.sidebar.write("Session OpenAI Key:", st.session_state.openai_api_key)
+# st.sidebar.write("os.getenv OPENAI_API_KEY:", os.getenv("OPENAI_API_KEY"))
+
+# print(f"Active OpenAI Key: {active_openai_key}")
+# print(f"Active SerpAPI Key: {active_serpapi_key}")
 
 # ************* Display API Status *************
 st.sidebar.header("API Status")
@@ -186,30 +199,32 @@ def create_news_search_tool(api_key):
         try:
             params = {
                 "engine": "google_news",
-                "gl": "us",
-                "hl": "en",
+                "gl": "ca", # country to use the google search engine for, this case Canada 
+                "hl": "en", # language used, this case it's English
                 "num": 5
             }
             search_wrapper = SerpAPIWrapper(params=params, serpapi_api_key=api_key)
-            # Optional test:
-            # search_wrapper.run("test query")
+
+            def safe_news_run(query):
+                try:
+                    return search_wrapper.run(query)
+                except Exception as e:
+                    return f"News search failed: {str(e)}"
 
             return Tool(
                 name="search_stock_news",
-                func=search_wrapper.run,
+                func=safe_news_run,
                 description="Useful for searching recent news articles about a specific company or stock symbol..."
             )
 
         except Exception as e:
-            print(f"SerpAPI Tool Creation Warning: {e}")
             return Tool(
                 name="search_stock_news",
-                func=lambda x: f"News search unavailable (SerpAPI key configured, but error occurred: {e}).",
+                func=lambda x: f"News search unavailable (initialization failed: {e})",
                 description="News search tool (currently unavailable due to configuration error)."
             )
 
     else:
-        # Dummy fallback if no key is provided
         return Tool(
             name="search_stock_news",
             func=lambda x: "News search unavailable (SerpAPI key not provided).",
