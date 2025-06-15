@@ -64,15 +64,15 @@ Here are some examples of the chatbot in action:
 
 ### 🧪 Test Case: Requesting for the Top 10 Stocks to Invest in Today  
 Chatbot was able to identify 10 types of companies that are worthwhile, while giving a few specific example companies.  
-![Top 10 Stock Recommendation](screenshot_test_cases/tc3.png)
+![Top 10 Stock Recommendation](screenshot_test_cases/tc3.PNG)
 
 ### 🧪 Test Case: Buffett-style Response on Celsius Stock Query
 Chatbot explains Celsius (CELH) using Buffett's value investing lens'.
-![CELH Buffett Analysis](screenshot_test_cases/tc4.png)
+![CELH Buffett Analysis](screenshot_test_cases/tc4.PNG)
 
 ### 🧪 Test Case: Requesting Recent News Reports on Meta Platforms (Positive & Negative Reports)  
 SerpAPI key was properly called and retrieved 5 recent news reports (June 12, 2025) on possible growth and decline for the stock META.  
-![Meta News Reports](screenshot_test_cases/tc6.png)
+![Meta News Reports](screenshot_test_cases/tc6.PNG)
 
 ---
 
