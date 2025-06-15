@@ -105,7 +105,7 @@ Chatbot was able to identify 10 types of companies that are worthwhile, while gi
 ![Top 10 Stock Recommendation](screenshot_test_cases/tc3.PNG)
 
 ### 🧪 Test Case: Buffett-style Response on Celsius Stock Query
-Chatbot explains Celsius (CELH) using Buffett's value investing lens'.
+Chatbot explains Celsius (CELH) using Buffett's value investing lenses.
 ![CELH Buffett Analysis](screenshot_test_cases/tc4.PNG)
 
 ### 🧪 Test Case: Requesting Recent News Reports on Meta Platforms (Positive & Negative Reports)  
