@@ -1,6 +1,6 @@
 # 📈 Warren Buffett Chatbot Agent
 
-This is a personal project that explores the intersection of **artificial intelligence** and **finance** by creating a Warren Buffett-inspired stock advisor chatbot. Built using **Python**, **LangChain**, and **Streamlit**, the chatbot uses **OpenAI's API** for natural language reasoning, **yfinance** for stock fundamentals, and **SerpAPI** for real-time financial news. It is designed to emulate Warren Buffett’s investment philosophy and communication style.
+A modular, Streamlit-based chatbot that blends **AI** and **finance** to simulate Warren Buffett’s investment philosophy and tone. It uses **LangChain**, **OpenAI**, **yfinance**, and **SerpAPI** to provide stock guidance, live market data, and recent financial news — all through a Buffett-style conversational agent.
 
 > ⚠️ **Disclaimer:** This project is for educational purposes only and does **not** constitute financial advice.
 
@@ -8,14 +8,14 @@ This is a personal project that explores the intersection of **artificial intell
 
 ## 🧠 Project Overview
 
-The Warren Buffett Chatbot Agent allows users to ask investment-related questions and receive guidance aligned with Buffett’s value investing principles. Topics include:
+This chatbot allows users to ask questions like:
 
-- 📊 Stock recommendations
-- 📈 Investment strategies
-- 🏢 Company fundamentals
-- 🌍 Market trends and economic outlook
+- 📊 “Is Tesla worth buying right now?”
+- 🏢 “Tell me about Apple’s financial health.”
+- 🌍 “What are the current economic concerns?”
+- 📈 “What is a good long-term investing strategy?”
 
-The chatbot responds with Buffett-style reasoning, quoting well-known Buffett principles and maintaining a prudent tone.
+The agent replies using Buffett-style reasoning — quoting Buffett, emphasizing business moats, value investing, long-term thinking, and avoiding hype or speculation.
 
 ---
 
@@ -44,17 +44,55 @@ The chatbot responds with Buffett-style reasoning, quoting well-known Buffett pr
 
 ---
 
-## 🚀 Roadmap
+## ⚙️ Setup & Run Instructions
 
-- [x] Implement core chatbot with OpenAI and LangChain
-- [x] Add yfinance integration for stock fundamentals
-- [x] Add SerpAPI news search tool
-- [x] Streamlit UI for interactive chatting
-- [x] API key input and validation
-- [ ] Add portfolio analysis and tracking features
-- [ ] Refine personality tuning with few-shot examples
-- [ ] Deploy to cloud (Streamlit Share / Hugging Face Spaces)
-- [ ] Add feedback loop for rating responses
+1. **Clone this repository**:
+
+```bash
+git clone https://github.com/elbertChao/warren-buffett-agent.git
+cd warren-buffett-agent
+```
+
+2. **Install dependencies**:
+
+```bash
+pip install -r requirements.txt
+```
+
+3. **If you use .env for API keys, create it in the root**:
+
+```bash
+OPENAI_API_KEY=sk-xxxx...
+SERPAPI_API_KEY=your-serpapi-key
+```
+Alternatively, you can manually enter the API keys through the Streamlit sidebar at runtime.
+
+4. **Run the app from the root directory**:
+
+```bash
+streamlit run app/main.py
+```
+
+---
+
+## 📂 Repository Structure
+```bash
+warren-buffett-agent/
+├── app/
+│ ├── main.py # Main Streamlit app
+│ ├── agents/
+│ │ └── buffett_agent.py # LangChain agent creation
+│ ├── prompts/
+│ │ └── buffett_prompt.py # Buffett system prompt
+│ ├── tools/
+│ │ ├── stock_data.py # yfinance integration
+│ │ └── news_search.py # SerpAPI integration
+│ └── utils/
+│ └── key_utils.py # API key validation, sidebar UI setup
+├── .env
+├── requirements.txt
+└── README.md
+```
 
 ---
 
@@ -67,7 +105,7 @@ Chatbot was able to identify 10 types of companies that are worthwhile, while gi
 ![Top 10 Stock Recommendation](screenshot_test_cases/tc3.PNG)
 
 ### 🧪 Test Case: Buffett-style Response on Celsius Stock Query
-Chatbot explains Celsius (CELH) using Buffett's value investing lens'.
+Chatbot explains Celsius (CELH) using Buffett's value investing lenses.
 ![CELH Buffett Analysis](screenshot_test_cases/tc4.PNG)
 
 ### 🧪 Test Case: Requesting Recent News Reports on Meta Platforms (Positive & Negative Reports)  
@@ -76,8 +114,17 @@ SerpAPI key was properly called and retrieved 5 recent news reports (June 12, 20
 
 ---
 
-## 📂 Repository Structure (Planned)
-- IN PROGRESS
+## 🚧 Roadmap
+
+- [x] Implement core chatbot with OpenAI and LangChain
+- [x] Add yfinance integration for stock fundamentals
+- [x] Add SerpAPI news search tool
+- [x] Streamlit UI for interactive chatting
+- [x] API key input and validation
+- [ ] Add portfolio analysis and tracking features
+- [ ] Refine personality tuning with few-shot examples
+- [ ] Deploy to cloud (Streamlit Share / Hugging Face Spaces)
+- [ ] Add feedback loop for rating responses
 
 ---
 
