@@ -1,0 +1,1 @@
+# Here we will implement a simple sentiment analysis tool to colour code news headlines based on sentiment.
