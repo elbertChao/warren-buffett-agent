@@ -27,6 +27,10 @@ The agent replies using Buffett-style reasoning — quoting Buffett, emphasizing
 - 🧠 **OpenAI Integration** for intelligent responses
 - 🛡️ **API Key Validation** and session state handling
 - 💬 **Chat History** with Streamlit's chat UI
+- 📊 **Portfolio Analysis Mode**: Enter your holdings and receive:
+  - 1-month or 1-year historical performance
+  - A Buffett-style commentary on your portfolio
+  - A quantified Buffett approval rating (0–100%)
 - 🧱 Modular Python structure (LLM config, tools, prompts, memory)
 
 ---
@@ -78,17 +82,24 @@ streamlit run app/main.py
 ## 📂 Repository Structure
 ```bash
 warren-buffett-agent/
-├── app/
-│ ├── main.py # Main Streamlit app
-│ ├── agents/
-│ │ └── buffett_agent.py # LangChain agent creation
-│ ├── prompts/
-│ │ └── buffett_prompt.py # Buffett system prompt
-│ ├── tools/
-│ │ ├── stock_data.py # yfinance integration
-│ │ └── news_search.py # SerpAPI integration
-│ └── utils/
-│ └── key_utils.py # API key validation, sidebar UI setup
+├── app
+    ├── agents
+    │   └── buffett_agent.py
+    ├── data
+    │   ├── portfolio_db.json
+    │   └── quotes.json
+    ├── main.py
+    ├── prompts
+    │   └── buffett_prompt.py
+    ├── tools
+    │   ├── news_search.py
+    │   ├── sentiment_analysis.py
+    │   └── stock_data.py
+    ├── ui
+    │   └── sidebar_sections.py
+    └── utils
+    │   ├── key_utils.py
+    │   └── portfolio_utils.py
 ├── .env
 ├── requirements.txt
 └── README.md
@@ -121,10 +132,12 @@ SerpAPI key was properly called and retrieved 5 recent news reports (June 12, 20
 - [x] Add SerpAPI news search tool
 - [x] Streamlit UI for interactive chatting
 - [x] API key input and validation
-- [ ] Add portfolio analysis and tracking features
+- [x] Add portfolio analysis and tracking features
 - [ ] Refine personality tuning with few-shot examples
 - [ ] Deploy to cloud (Streamlit Share / Hugging Face Spaces)
 - [ ] Add feedback loop for rating responses
+- [ ] Let users upload portfolio CSV for auto analysis
+- [ ] Improve visualization of Buffett score using charts
 
 ---
 
